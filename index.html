@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse - Movie Explorer</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">CineVerse<span>.</span></h1>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#watchlist">My Watchlist</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h2>Discover Your Next Favorite Movie</h2>
+                <p>Explore movies, watch trailers, and create your personal watchlist.</p>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for movies..."
+                    >
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movie Section -->
+        <section class="movies-section" id="movies">
+            <h2>Popular Movies</h2>
+            <div class="movie-container" id="movieContainer">
+                <p>Movies will appear here soon...</p>
+            </div>
+        </section>
+
+        <!-- Watchlist Section -->
+        <section class="movies-section" id="watchlist">
+            <h2>My Watchlist</h2>
+            <div class="movie-container" id="watchlistContainer">
+                <p>Your watchlist is empty.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 CineVerse. Explore the world of movies.</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="js/script.js"></script>
+</body>
+</html>
