@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://api.themoviedb.org/3";
+const API_BASE_URL = "/.netlify/functions/tmdb";
+const TMDB_READ_ACCESS_TOKEN = "";
 
 const movieContainer = document.getElementById("movieContainer");
 const trendingContainer = document.getElementById("trendingContainer");
