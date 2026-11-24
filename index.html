@@ -12,21 +12,63 @@
 
     <!-- CSS File -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Video.js Player -->
+    <link
+    href="https://vjs.zencdn.net/8.23.4/video-js.css"
+    rel="stylesheet">
+
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <h1 class="logo">CineVerse<span>.</span></h1>
+            <a href="#home" class="brand-logo">
+    <img src="assets/TFI.jpeg" alt="CineVerse Logo">
+            </a>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#movies">Movies</a></li>
                 <li><a href="#watchlist">My Watchlist</a></li>
+                <li><a href="#trendingSection">Trending</a></li>
+                <li><a href="#upcomingSection">Upcoming</a></li>
+                <li><a href="#genreFilter">Genres</a></li>
+                <li><a href="#aboutSection">About</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle">
+            ☀️ Light Mode
+            </button>
         </nav>
     </header>
+
+<section class="featured-section">
+    <div id="featuredMovie" class="featured-movie">
+
+        <div class="featured-content">
+
+            <h1 id="featuredTitle">
+                Loading Featured Movie...
+            </h1>
+
+            <p id="featuredRating"></p>
+
+            <p id="featuredOverview"></p>
+
+            <button id="featuredDetailsBtn" class="details-btn">
+                View Details
+            </button>
+
+            <button id="featuredTrailerBtn" class="trailer-btn">
+                ▶ Watch Trailer
+            </button>
+
+        </div>
+
+    </div>
+</section>
 
     <!-- Hero Section -->
     <main>
@@ -39,36 +81,298 @@
                     <input
                         type="text"
                         id="searchInput"
-                        placeholder="Search for movies..."
-                    >
+                        placeholder="Search for movies...">
                     <button id="searchBtn">Search</button>
                 </div>
             </div>
         </section>
 
         <!-- Movie Section -->
-        <section class="movies-section" id="movies">
+            <section class="movies-section" id="movies">
             <h2>Popular Movies</h2>
+            <select id="genreFilter">
+            <option value="">All Genres</option>
+            </select>
+        <select id="yearFilter">
+    <option value="">All Years</option>
+    <option value="2026">2026</option>
+    <option value="2025">2025</option>
+    <option value="2024">2024</option>
+    <option value="2023">2023</option>
+    <option value="2022">2022</option>
+    <option value="2021">2021</option>
+    <option value="2020">2020</option>
+</select>
+
+<select id="ratingFilter">
+    <option value="">Any Rating</option>
+    <option value="5">5+</option>
+    <option value="6">6+</option>
+    <option value="7">7+</option>
+    <option value="8">8+</option>
+</select>
+
+<select id="sortFilter">
+    <option value="popularity.desc">Most Popular</option>
+    <option value="vote_average.desc">Top Rated</option>
+    <option value="primary_release_date.desc">Newest First</option>
+    <option value="primary_release_date.asc">Oldest First</option>
+    <option value="revenue.desc">Highest Revenue</option>
+</select>
+
+<select id="languageFilter">
+    <option value="">All Languages</option>
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="te">Telugu</option>
+    <option value="ta">Tamil</option>
+    <option value="ko">Korean</option>
+    <option value="ja">Japanese</option>
+    <option value="ml">Malayalam</option>
+    <option value="es">Spanish</option>
+    <option value="fr">French</option>
+</select>
+<button id="clearFiltersBtn" class="clear-filters-btn">
+    Clear All Filters
+</button>
+
             <div class="movie-container" id="movieContainer">
+                <button id="showMoreMoviesBtn" class="show-more-btn">
+                Show More Movies
+                </button>
                 <p>Movies will appear here soon...</p>
             </div>
+            <div class="pagination">
+    <button id="prevPageBtn" disabled>Previous</button>
+
+    <span id="pageInfo">Page 1</span>
+
+    <button id="nextPageBtn">Next</button>
+</div>
         </section>
+
+        <section class="trending-section" id="trendingSection">
+    <h2>🔥 Trending Movies</h2>
+
+    <div class="trending-buttons">
+        <button id="trendingDayBtn" class="active">
+            Today
+        </button>
+
+        <button id="trendingWeekBtn">
+            This Week
+        </button>
+    </div>
+
+    <div id="trendingContainer" class="movie-container">
+        <p>Loading trending movies...</p>
+    </div>
+</section>
+
+<section class="upcoming-section" id="upcomingSection">
+    <h2>🎬 Upcoming Movies</h2>
+
+    <div id="upcomingContainer" class="movie-container">
+        <p>Loading upcoming movies...</p>
+    </div>
+</section>
+
+<!-- Full Movies Section -->
+<section class="full-movies-section" id="fullMoviesSection">
+
+    <div class="section-header">
+        <h2>Watch Full Movies</h2>
+        <p>Explore movies available for full-length playback</p>
+    </div>
+
+    <div class="full-movies-container" id="fullMoviesContainer">
+
+    <div class="full-movie-card">
+    <div class="full-movie-info">
+        <h3>Play Your Movie</h3>
+
+        <p>Enter a direct video URL to watch inside CineVerse.</p>
+
+        <input
+            type="text"
+            id="movieUrlInput"
+            placeholder="Paste your MP4 video URL">
+
+        <input
+            type="text"
+            id="movieTitleInput"
+            placeholder="Enter movie title">
+
+        <button
+            class="play-full-movie-btn"
+            onclick="playMovieFromUrl()">
+            <i class="fas fa-play"></i> Play Movie
+        </button>
+    </div>
+</div>
+
+    </div>
+
+<!-- Public Domain Movie Catalogue -->
+<div class="public-domain-catalogue">
+    <h3>Classic Cinema Collection</h3>
+    <p>Explore historical films available here.</p>
+    <button
+    class="play-full-movie-btn"
+    onclick="loadPublicDomainMovies()">
+    Explore Movies
+    </button>
+    <div id="publicDomainMoviesContainer">
+        <p>Click Explore Movies to load the collection.</p>
+    </div>
+</div>
+
+</section>
 
         <!-- Watchlist Section -->
+
         <section class="movies-section" id="watchlist">
-            <h2>My Watchlist</h2>
-            <div class="movie-container" id="watchlistContainer">
-                <p>Your watchlist is empty.</p>
-            </div>
-        </section>
+    <h2>❤️ My Watchlist</h2>
+
+    <div class="movie-container" id="watchlistContainer">
+        <p>Your watchlist is empty.</p>
+    </div>
+</section>
+
     </main>
 
+<!-- Movie Details Popup -->
+<div class="movie-modal" id="movieModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" id="closeModal">
+            &times;
+        </button>
+
+        <img id="detailPoster" src="" alt="Movie Poster">
+
+        <div class="detail-info">
+
+            <h2 id="detailTitle">Movie Title</h2>
+
+            <p id="detailRating"></p>
+
+            <p id="detailRelease"></p>
+
+            <p id="detailGenres"></p>
+
+            <h3>Overview</h3>
+            <p id="detailOverview"></p>
+
+            <h3>Cast</h3>
+            <p id="detailCast"></p>
+
+            <div class="similar-movies-section">
+    <h3>🎯 You May Also Like</h3>
+
+    <div id="similarMoviesContainer" class="similar-movies-container">
+        <p>Loading recommendations...</p>
+    </div>
+</div>
+
+            <div class="watch-providers-section">
+    <h3>Where to Watch</h3>
+
+    <div id="watchProviders">
+        Checking available platforms...
+    </div>
+</div>
+
+        </div>
+
+    </div>
+
+</div>
+
     <!-- Footer -->
-    <footer>
-        <p>© 2026 CineVerse. Explore the world of movies.</p>
-    </footer>
+     <button id="backToTop" class="back-to-top">
+    ↑
+</button>
+
+<section class="about-section" id="aboutSection">
+    <h2>About CineVerse</h2>
+
+    <p>
+        Welcome to CineVerse, your ultimate movie destination!
+        Discover popular movies, explore trending titles,
+        watch trailers, find recommendations, and create
+        your own personal watchlist.
+    </p>
+
+    <p>
+        Whether you love action, romance, comedy, thriller,
+        or science fiction, CineVerse helps you discover
+        your next favorite movie.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 CineVerse. Explore the world of movies.</p>
+</footer>
+
+<!-- CineVerse Integrated Movie Player -->
+<div id="cinePlayerModal" class="cine-player-modal">
+
+    <div class="cine-player-content">
+
+        <div class="cine-player-header">
+            <h2 id="cinePlayerTitle">Now Playing</h2>
+
+            <button id="closeCinePlayer" class="close-player-btn">
+                &times;
+            </button>
+        </div>
+
+        <!-- Trailer Player -->
+        <div id="trailerPlayerContainer" class="player-screen">
+            <iframe
+                id="trailerPlayer"
+                src=""
+                title="Movie Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Full Movie Player -->
+        <div id="fullMoviePlayerContainer" class="player-screen">
+            <div class="audio-language-control">
+            <label for="audioLanguageSelect">Audio Language:</label>
+
+            <select id="audioLanguageSelect">
+                <option value="">Default Audio</option>
+            </select>
+        </div>
+
+        <div class="subtitle-language-control">
+    <label for="subtitleLanguageSelect">Subtitles:</label>
+
+    <select id="subtitleLanguageSelect">
+        <option value="-1">Subtitles Off</option>
+    </select>
+    </div>
+            <video
+            id="fullMoviePlayer"
+            class="video-js vjs-default-skin"
+            controls
+            playsinline
+            preload="metadata">
+            Your browser does not support video playback.
+        </video>
+        </div>
+
+    </div>
+
+</div>
 
     <!-- JavaScript File -->
+    <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
