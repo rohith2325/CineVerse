@@ -1967,3 +1967,177 @@ header {
     align-items: center;
     gap: 22px;
 }
+
+/* Mobile Navbar Fix */
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        min-width: 0;
+        min-height: auto;
+        padding: 8px 12px;
+        gap: 8px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .brand-logo img {
+        width: 140px;
+        height: 48px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 8px 0;
+        white-space: nowrap;
+    }
+
+    .nav-links li a {
+        font-size: 12px;
+    }
+
+    .theme-toggle {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    /* About section */
+    .about-section {
+        padding: 10px 15px;
+    }
+
+    .about-section h2 {
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+
+    .about-section p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 10px auto;
+    }
+
+    .about-section ul {
+        padding-left: 20px;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    .about-section li {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+}
+
+/* About List Mobile Fix */
+@media screen and (max-width: 600px) {
+    .about-section ul {
+        padding-left: 20px;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    .about-section li {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        width: 100%;
+        margin: 0;
+        padding: 8px 6px;
+        box-sizing: border-box;
+    }
+}
+
+/* About Section - Laptop Spacing */
+@media screen and (min-width: 601px) {
+    .about-section {
+        padding-top: 10px;
+        padding-bottom: 1px;
+    }
+
+    .about-section h2 {
+        margin-bottom: 10px;
+    }
+
+    .about-section ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .about-section li {
+        margin-bottom: 2px;
+        line-height: 1.4;
+    }
+}
+/* Classic Cinema Collection Spacing */
+.public-domain-catalogue {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.public-domain-catalogue h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.public-domain-catalogue p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+#publicDomainMoviesContainer {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#watchlist {
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+/* Remove space below Classic Cinema Collection */
+.public-domain-catalogue {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#publicDomainMoviesContainer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.full-movies-section {
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Reduce space before My Watchlist */
+#watchlist {
+    margin-top: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 15px !important;
+    
+}
