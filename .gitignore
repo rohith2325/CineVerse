@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# API secrets
+js/config.js
